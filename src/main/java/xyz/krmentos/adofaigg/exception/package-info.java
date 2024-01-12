@@ -3,4 +3,4 @@
  *
  * @author Jongyeol
  */
-package xyz.krmentos.adofaigg.api.exception;
+package xyz.krmentos.adofaigg.exception;

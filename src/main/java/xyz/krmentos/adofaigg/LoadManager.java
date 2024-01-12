@@ -1,11 +1,11 @@
-package xyz.krmentos.adofaigg.api;
+package xyz.krmentos.adofaigg;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.JsonParser;
-import xyz.krmentos.adofaigg.api.data.ClearData;
-import xyz.krmentos.adofaigg.api.data.MapData;
-import xyz.krmentos.adofaigg.api.setting.LoadOption;
+import xyz.krmentos.adofaigg.data.ClearData;
+import xyz.krmentos.adofaigg.data.MapData;
+import xyz.krmentos.adofaigg.setting.LoadOption;
 import lombok.Cleanup;
 
 import java.io.IOException;

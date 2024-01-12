@@ -1,4 +1,4 @@
-import xyz.krmentos.adofaigg.api.AdofaiGG;
+import xyz.krmentos.adofaigg.AdofaiGG;
 
 public class Main {
     public static void main(String[] args) {

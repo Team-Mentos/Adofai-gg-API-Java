@@ -1,6 +1,6 @@
-package xyz.krmentos.adofaigg.api.query;
+package xyz.krmentos.adofaigg.query;
 
-import xyz.krmentos.adofaigg.api.data.ClearData;
+import xyz.krmentos.adofaigg.data.ClearData;
 
 import java.util.Arrays;
 import java.util.List;

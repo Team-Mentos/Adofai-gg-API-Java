@@ -1,4 +1,4 @@
-package xyz.krmentos.adofaigg.api.exception;
+package xyz.krmentos.adofaigg.exception;
 
 /**
  * DataNotLoaded는 데이터가 로드되지 않았을 때 발생하는 예외 클래스입니다.

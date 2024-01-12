@@ -1,6 +1,6 @@
-package xyz.krmentos.adofaigg.api.setting;
+package xyz.krmentos.adofaigg.setting;
 
-import xyz.krmentos.adofaigg.api.LoadManager;
+import xyz.krmentos.adofaigg.LoadManager;
 
 /**
  * 맵 데이터를 로드하는 옵션을 정의한 열거형입니다.

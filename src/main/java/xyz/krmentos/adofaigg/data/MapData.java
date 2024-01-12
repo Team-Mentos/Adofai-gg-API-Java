@@ -1,10 +1,10 @@
-package xyz.krmentos.adofaigg.api.data;
+package xyz.krmentos.adofaigg.data;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import lombok.*;
-import xyz.krmentos.adofaigg.api.query.MapQuery;
+import xyz.krmentos.adofaigg.query.MapQuery;
 
 import java.util.ArrayList;
 import java.util.List;

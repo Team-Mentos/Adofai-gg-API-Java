@@ -3,4 +3,4 @@
  *
  * @author Jongyeol
  */
-package xyz.krmentos.adofaigg.api.data;
+package xyz.krmentos.adofaigg.data;

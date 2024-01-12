@@ -1,4 +1,4 @@
-package xyz.krmentos.adofaigg.api.data;
+package xyz.krmentos.adofaigg.data;
 
 /**
  * Adofai.gg API에서 사용되는 맵 태그를 정의합니다.

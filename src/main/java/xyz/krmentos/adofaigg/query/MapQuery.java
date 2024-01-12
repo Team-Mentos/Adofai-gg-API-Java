@@ -1,7 +1,7 @@
-package xyz.krmentos.adofaigg.api.query;
+package xyz.krmentos.adofaigg.query;
 
-import xyz.krmentos.adofaigg.api.data.MapData;
-import xyz.krmentos.adofaigg.api.data.Tag;
+import xyz.krmentos.adofaigg.data.MapData;
+import xyz.krmentos.adofaigg.data.Tag;
 
 import java.util.Arrays;
 import java.util.List;

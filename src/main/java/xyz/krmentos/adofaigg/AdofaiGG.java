@@ -1,18 +1,15 @@
-package xyz.krmentos.adofaigg.api;
+package xyz.krmentos.adofaigg;
 
 import lombok.Getter;
-import xyz.krmentos.adofaigg.api.data.ClearData;
-import xyz.krmentos.adofaigg.api.data.MapData;
-import xyz.krmentos.adofaigg.api.exception.DataNotLoaded;
-import xyz.krmentos.adofaigg.api.query.ClearQuery;
-import xyz.krmentos.adofaigg.api.query.MapQuery;
-import xyz.krmentos.adofaigg.api.setting.LoadOption;
+import xyz.krmentos.adofaigg.data.ClearData;
+import xyz.krmentos.adofaigg.data.MapData;
+import xyz.krmentos.adofaigg.exception.DataNotLoaded;
+import xyz.krmentos.adofaigg.query.ClearQuery;
+import xyz.krmentos.adofaigg.query.MapQuery;
+import xyz.krmentos.adofaigg.setting.LoadOption;
 
 import java.util.Arrays;
 import java.util.List;
-
-import static xyz.krmentos.adofaigg.api.setting.LoadOption.LOAD_ACTIVE_FOR_TIME;
-import static xyz.krmentos.adofaigg.api.setting.LoadOption.LOAD_EVERY_ACTIVE;
 
 /**
  * 이 클래스는 Adofai.gg API의 메인 클래스입니다.
@@ -45,7 +42,7 @@ public class AdofaiGG {
      * 기본 구성으로 AdofaiGG 개체를 구성합니다.
      */
     public AdofaiGG() {
-        this(LOAD_EVERY_ACTIVE);
+        this(LoadOption.LOAD_EVERY_ACTIVE);
     }
 
     /**
@@ -154,8 +151,8 @@ public class AdofaiGG {
      * @throws DataNotLoaded 데이터가 로딩되지 않았을 경우 예외가 발생합니다.
      */
     public MapData[] getMaps() {
-        if(loadOption == LOAD_EVERY_ACTIVE ||
-            (loadOption == LOAD_ACTIVE_FOR_TIME && loadManager.lastMapDataLoadTime + loadTime <= System.currentTimeMillis() / 1000))
+        if(loadOption == LoadOption.LOAD_EVERY_ACTIVE ||
+            (loadOption == LoadOption.LOAD_ACTIVE_FOR_TIME && loadManager.lastMapDataLoadTime + loadTime <= System.currentTimeMillis() / 1000))
             loadManager.loadMapData();
         if(loadManager.mapData == null) throw new DataNotLoaded();
         return loadManager.mapData;
@@ -191,8 +188,8 @@ public class AdofaiGG {
      * @throws DataNotLoaded 데이터가 로딩되지 않았을 경우 예외가 발생합니다.
      */
     public ClearData[] getClears() {
-        if(loadOption == LOAD_EVERY_ACTIVE ||
-            (loadOption == LOAD_ACTIVE_FOR_TIME && loadManager.lastClearDataLoadTime + loadTime <= System.currentTimeMillis() / 1000))
+        if(loadOption == LoadOption.LOAD_EVERY_ACTIVE ||
+            (loadOption == LoadOption.LOAD_ACTIVE_FOR_TIME && loadManager.lastClearDataLoadTime + loadTime <= System.currentTimeMillis() / 1000))
             loadManager.loadClearData();
         if(loadManager.clearData == null) throw new DataNotLoaded();
         return loadManager.clearData;

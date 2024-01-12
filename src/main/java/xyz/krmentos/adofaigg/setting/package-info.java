@@ -3,4 +3,4 @@
  *
  * @author Jongyeol
  */
-package xyz.krmentos.adofaigg.api.setting;
+package xyz.krmentos.adofaigg.setting;
