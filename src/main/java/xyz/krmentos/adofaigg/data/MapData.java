@@ -52,6 +52,9 @@ import java.util.List;
 @Data
 @Setter(AccessLevel.NONE)
 public class MapData {
+    /**
+     * Google Sheet에 GID 코드로 데이터를 불러오는데 사용합니다.
+     */
     public static int gid = 739034057;
     private int id;
     private String song;

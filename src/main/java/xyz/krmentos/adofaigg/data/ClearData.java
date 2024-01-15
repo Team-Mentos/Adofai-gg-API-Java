@@ -48,6 +48,9 @@ import xyz.krmentos.adofaigg.query.ClearQuery;
 @Data
 @Setter(AccessLevel.NONE)
 public class ClearData {
+    /**
+     * Google Sheet에 GID 코드로 데이터를 불러오는데 사용합니다.
+     */
     public static int gid = 110445676;
     private int id;
     private String timeStamp;
