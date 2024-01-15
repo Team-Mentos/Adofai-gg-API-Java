@@ -33,6 +33,7 @@ import com.google.gson.JsonParseException;
 import com.google.gson.JsonParser;
 import xyz.krmentos.adofaigg.data.ClearData;
 import xyz.krmentos.adofaigg.data.MapData;
+import xyz.krmentos.adofaigg.data.UserData;
 import xyz.krmentos.adofaigg.setting.LoadOption;
 import lombok.Cleanup;
 
@@ -48,12 +49,13 @@ import java.net.URL;
  *
  * <p>{@link AdofaiGG} 객체를 통해 설정된 옵션에 따라 데이터를 주기적으로 로드할 수 있습니다.
  *
- * <p>데이터를 수동으로 받아오기 위해 {@link #loadMapData()}와 {@link #loadClearData()}를 사용할 수 있습니다.
+ * <p>데이터를 수동으로 받아오기 위해 {@link #loadMapData()}와 {@link #loadClearData()}와 {@link #loadUserData()}를 사용할 수 있습니다.
  *
  * @author Jongyeol
  * @see AdofaiGG
  * @see MapData
  * @see ClearData
+ * @see UserData
  */
 public class LoadManager {
 
@@ -64,6 +66,8 @@ public class LoadManager {
     long lastMapDataLoadTime;
     ClearData[] clearData;
     long lastClearDataLoadTime;
+    UserData[] userData;
+    long lastUserDataLoadTime;
 
     /**
      * LoadManager 생성자입니다.
@@ -101,7 +105,8 @@ public class LoadManager {
             while(!Thread.currentThread().isInterrupted()) {
                 loadMapData();
                 loadClearData();
-                Thread.sleep(adofaiGG.getLoadTime() * 1000);
+                loadUserData();
+                Thread.sleep(adofaiGG.getLoadTime());
             }
         } catch (InterruptedException ignored) {
         }
@@ -112,7 +117,7 @@ public class LoadManager {
      */
     public void loadMapData() {
         mapData = MapData.loadData(loadData(MapData.gid));
-        lastMapDataLoadTime = System.currentTimeMillis() / 1000;
+        lastMapDataLoadTime = System.currentTimeMillis();
     }
 
     /**
@@ -120,7 +125,15 @@ public class LoadManager {
      */
     public void loadClearData() {
         clearData = ClearData.loadData(loadData(ClearData.gid));
-        lastClearDataLoadTime = System.currentTimeMillis() / 1000;
+        lastClearDataLoadTime = System.currentTimeMillis();
+    }
+
+    /**
+     * 유저 데이터를 받아오고 배열에 저장합니다.
+     */
+    public void loadUserData() {
+        userData = UserData.loadData(loadData(UserData.gid));
+        lastUserDataLoadTime = System.currentTimeMillis();
     }
 
     /**

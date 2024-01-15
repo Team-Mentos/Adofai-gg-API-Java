@@ -34,6 +34,7 @@ import xyz.krmentos.adofaigg.data.MapData;
 import xyz.krmentos.adofaigg.exception.DataNotLoaded;
 import xyz.krmentos.adofaigg.query.ClearQuery;
 import xyz.krmentos.adofaigg.query.MapQuery;
+import xyz.krmentos.adofaigg.query.UserQuery;
 import xyz.krmentos.adofaigg.setting.LoadOption;
 
 import java.util.Arrays;
@@ -52,7 +53,7 @@ import java.util.List;
  *
  * <p>Adofai.gg API는 {@link AdofaiGG} 객체를 생성한 후 데이터를 불러올 수 있습니다.
  *
- * <p>맵 데이터는 {@link MapQuery}를 통해, 클리어 데이터는 {@link ClearQuery}를 통해 필터를 설정할 수 있습니다.
+ * <p>맵 데이터는 {@link MapQuery}를 통해, 클리어 데이터는 {@link ClearQuery}를 통해, 유저 데이터는 {@link UserQuery}를 통해 필터를 설정할 수 있습니다.
  *
  * <p>데이터를 수동으로 받기 위해서는 {@link LoadManager}를 참조하세요.
  *
@@ -92,7 +93,7 @@ public class AdofaiGG {
      */
     public AdofaiGG(LoadOption loadOption, long time) {
         this.loadOption = loadOption;
-        loadTime = time;
+        loadTime = time * 1000;
         loadManager = new LoadManager(this);
     }
 
@@ -180,7 +181,7 @@ public class AdofaiGG {
      */
     public MapData[] getMaps() {
         if(loadOption == LoadOption.LOAD_EVERY_ACTIVE ||
-            (loadOption == LoadOption.LOAD_ACTIVE_FOR_TIME && loadManager.lastMapDataLoadTime + loadTime <= System.currentTimeMillis() / 1000))
+            (loadOption == LoadOption.LOAD_ACTIVE_FOR_TIME && loadManager.lastMapDataLoadTime + loadTime <= System.currentTimeMillis()))
             loadManager.loadMapData();
         if(loadManager.mapData == null) throw new DataNotLoaded();
         return loadManager.mapData;
@@ -217,7 +218,7 @@ public class AdofaiGG {
      */
     public ClearData[] getClears() {
         if(loadOption == LoadOption.LOAD_EVERY_ACTIVE ||
-            (loadOption == LoadOption.LOAD_ACTIVE_FOR_TIME && loadManager.lastClearDataLoadTime + loadTime <= System.currentTimeMillis() / 1000))
+            (loadOption == LoadOption.LOAD_ACTIVE_FOR_TIME && loadManager.lastClearDataLoadTime + loadTime <= System.currentTimeMillis()))
             loadManager.loadClearData();
         if(loadManager.clearData == null) throw new DataNotLoaded();
         return loadManager.clearData;
