@@ -90,7 +90,7 @@ public class MapQuery {
      *
      * @param difficulty 설정할 맵 데이터의 난이도입니다.
      * @return {@link MapQuery} 개체 자신을 반환합니다.
-     * @throws IllegalArgumentException 값이 0보다 작을 경우 예외가 발생합니다.
+     * @throws IllegalArgumentException 값이 0보다 작고 존재하지 않는 난이도일 경우 예외가 발생합니다.
      */
     public MapQuery setDifficulty(float difficulty) {
         checkDifficulty(difficulty);
@@ -105,7 +105,7 @@ public class MapQuery {
      * @param minDifficulty 최소 난이도 값입니다.
      * @param maxDifficulty 최대 난이도 값입니다.
      * @return {@link MapQuery} 개체 자신을 반환합니다.
-     * @throws IllegalArgumentException 값이 0보다 작거나 최소값이 최대값보다 큰 경우 발생합니다.
+     * @throws IllegalArgumentException 값이 0보다 작고 존재하지 않는 난이도거나 최소값이 최대값보다 큰 경우 발생합니다.
      */
     public MapQuery setDifficulty(float minDifficulty, float maxDifficulty) {
         checkDifficulty(minDifficulty);
@@ -122,7 +122,7 @@ public class MapQuery {
      *
      * @param minDifficulty 최소 난이도 값입니다.
      * @return {@link MapQuery} 개체 자신을 반환합니다.
-     * @throws IllegalArgumentException 값이 0보다 작을 경우 예외가 발생합니다.
+     * @throws IllegalArgumentException 값이 0보다 작고 존재하지 않는 난이도일 경우 예외가 발생합니다.
      */
     public MapQuery setMinDifficulty(float minDifficulty) {
         checkDifficulty(minDifficulty);
@@ -135,7 +135,7 @@ public class MapQuery {
      *
      * @param maxDifficulty 최대 난이도 값입니다.
      * @return {@link ClearQuery} 개체 자신을 반환합니다.
-     * @throws IllegalArgumentException 값이 0보다 작을 경우 예외가 발생합니다.
+     * @throws IllegalArgumentException 값이 0보다 작고 존재하지 않는 난이도일 경우 예외가 발생합니다.
      */
     public MapQuery setMaxDifficulty(float maxDifficulty) {
         checkDifficulty(maxDifficulty);
