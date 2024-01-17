@@ -24,3 +24,8 @@ token
 
 #IntelliJ IDEA
 .idea/
+
+#Account Information
+gradle.properties
+*.gpg
+*.asc

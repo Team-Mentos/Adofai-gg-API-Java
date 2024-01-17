@@ -1,0 +1,15 @@
+ext {
+    PUBLISH_GROUP_ID = 'xyz.krmentos'
+    PUBLISH_VERSION = '1.0.0'
+    PUBLISH_ARTIFACT_ID = 'adofai-gg-api'
+    PUBLISH_DESCRIPTION = 'Adofai.gg API in java'
+    PUBLISH_URL = 'https://github.com/Team-Mentos/Adofai-gg-API-Java'
+    PUBLISH_LICENSE_NAME = 'BSD 3-Clause License'
+    PUBLISH_LICENSE_URL = 'https://github.com/Team-Mentos/Adofai-gg-API-Java/blob/master/LICENSE'
+    PUBLISH_DEVELOPER_ID = 'Jongyeol'
+    PUBLISH_DEVELOPER_NAME = 'Jongyeol'
+    PUBLISH_DEVELOPER_EMAIL = 'jongyeol@krmentos.xyz'
+    PUBLISH_SCM_CONNECTION = 'scm:git:github.com/Team-Mentos/Adofai-gg-API-Java.git'
+    PUBLISH_SCM_DEVELOPER_CONNECTION = 'scm:git:ssh://github.com:Team-Mentos/Adofai-gg-API-Java.git'
+    PUBLISH_SCM_URL = 'https://github.com/Team-Mentos/Adofai-gg-API-Java/tree/master'
+}
