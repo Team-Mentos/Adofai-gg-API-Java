@@ -1,6 +1,6 @@
 ext {
     PUBLISH_GROUP_ID = 'xyz.krmentos'
-    PUBLISH_VERSION = '1.0.0'
+    PUBLISH_VERSION = '1.0.1'
     PUBLISH_ARTIFACT_ID = 'adofai-gg-api'
     PUBLISH_DESCRIPTION = 'Adofai.gg API in java'
     PUBLISH_URL = 'https://github.com/Team-Mentos/Adofai-gg-API-Java'

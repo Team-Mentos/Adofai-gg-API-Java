@@ -14,7 +14,7 @@ apply from: "publish-maven.gradle"
 apply from: 'publish.gradle'
 
 group = 'xyz.krmentos.adofaigg'
-version = '1.0.0'
+version = '1.0.1'
 
 repositories {
     mavenCentral()
