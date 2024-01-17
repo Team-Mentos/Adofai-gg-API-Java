@@ -31,6 +31,7 @@ package xyz.krmentos.adofaigg;
 import lombok.Getter;
 import xyz.krmentos.adofaigg.data.ClearData;
 import xyz.krmentos.adofaigg.data.MapData;
+import xyz.krmentos.adofaigg.data.UserData;
 import xyz.krmentos.adofaigg.exception.DataNotLoaded;
 import xyz.krmentos.adofaigg.query.ClearQuery;
 import xyz.krmentos.adofaigg.query.MapQuery;
@@ -222,5 +223,42 @@ public class AdofaiGG {
             loadManager.loadClearData();
         if(loadManager.clearData == null) throw new DataNotLoaded();
         return loadManager.clearData;
+    }
+
+    /**
+     * 지정된 Id에 해당하는 {@link UserData}를 반환합니다.
+     *
+     * @param id 검색할 {@link UserData}의 식별자입니다.
+     * @return 지정된 id와 관련된 {@link UserData} 객체입니다.
+     * @throws ArrayIndexOutOfBoundsException 제공된 id가 현재 UserData 배열의 범위를 벗어난 경우 예외가 발생합니다.
+     * @throws DataNotLoaded 데이터가 로딩되지 않았을 경우 예외가 발생합니다.
+     */
+    public UserData getUserById(int id) {
+        return getUsers()[id];
+    }
+
+    /**
+     * 지정된 {@link UserQuery}에 따라 필터링된 {@link UserData} 목록을 반환합니다.
+     *
+     * @param query {@link UserQuery} 객체로 지정된 검색 조건입니다.
+     * @return 검색 조건을 만족하는 {@link UserData} 객체들의 목록입니다.
+     * @throws DataNotLoaded 데이터가 로딩되지 않았을 경우 예외가 발생합니다.
+     */
+    public List<UserData> getUserByQuery(UserQuery query) {
+        return query.checkUser(getUsers());
+    }
+
+    /**
+     * 현재 로드된 모든 {@link UserData} 배열을 반환합니다.
+     *
+     * @return 현재 로드된 모든 {@link UserData} 객체들의 배열입니다.
+     * @throws DataNotLoaded 데이터가 로딩되지 않았을 경우 예외가 발생합니다.
+     */
+    public UserData[] getUsers() {
+        if(loadOption == LoadOption.LOAD_EVERY_ACTIVE ||
+            (loadOption == LoadOption.LOAD_ACTIVE_FOR_TIME && loadManager.lastClearDataLoadTime + loadTime <= System.currentTimeMillis()))
+            loadManager.loadUserData();
+        if(loadManager.clearData == null) throw new DataNotLoaded();
+        return loadManager.userData;
     }
 }
