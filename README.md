@@ -1,12 +1,13 @@
 # Adofai-gg-API-Java
 
 * 이 API는 자바에서 ADOFAI.GG의 사이트에서 데이터를 가져올 수 있는 API입니다.
+* 이 API는 ADOFAI.GG에서 만든것이 아닌, 비공식적으로 만든 API입니다.
 
 
 ## 유의사항
 * Java 버전 17이상을 요구합니다.
 
-## 사용법의 경우
+## 적용법
 
 ### Gradle
 ```
@@ -24,12 +25,12 @@ dependencies {
 </dependency>
 ```
 
+[수동 다운로드](https://github.com/Team-Mentos/Adofai-gg-API-Java/releases/latest)
+
 ## 코드 사용법의 예시
 ```
 // AdofaiGG 개체 생성
 AdofaiGG adofaiGG = new AdofaiGG(LoadOption.LOAD_EVERY_ACTIVE);
-// new AdofaiGG(), new AdofaiGG(LoadOption, (long) Time) 형식도 사용 가능
-
 
 // AdofaiGG에서 1번맵 데이터 받아오기
 MapData mapData = adofaiGG.getMapById(1);
@@ -46,6 +47,7 @@ UserData userData = adofaiGG.getUserById(1);
 // AdofaiGG에서 모든 맵 데이터 받아오기
 MapData[] allMap = adofaiGG.getMaps();
 ```
+자세한 내용은 [JavaDoc](https://jd.krmentos.xyz/adofai-gg-api/)을 확인해주세요.
 
 ## License
 ADOFAI.GG JAVA API의 경우 "BSD 3-Clause "New" or "Revised" License"를 사용합니다.
